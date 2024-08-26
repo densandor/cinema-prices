@@ -107,7 +107,8 @@ function Register() {
 			errorMessage:
 				"Password must have a lower and uppercase letter, number and special character, 8-20 characters",
 			label: "Password",
-			pattern: `^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*,.;:~|])[a-zA-Z0-9!@#$%^&*,.;:~|]{8,20}$`,
+			pattern:
+				"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!\\@\\#\\$\\%\\^\\&\\*\\,\\.\\;\\:\\~\\|])[a-zA-Z0-9!\\@\\#\\$\\%\\^\\&\\*\\,\\.\\;\\:\\~\\|]{8,20}$",
 			required: true,
 		},
 		{
