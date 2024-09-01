@@ -15,6 +15,7 @@ Admin users are also able to:
 - Get the latest movies using TMDB API and add them to the database.
 - Manually add a showtime for a movie to the database.
 - Automatically add showtimes for a movie for certain cinema chains to the database.
+
 <br/>
 
 ## How to build
@@ -25,4 +26,4 @@ Admin users are also able to:
 4. Ensure you add the correct TMDB API key, MySQL user and password into the `server/config/config.js` file.
 5. Install the dependencies for the frontend and the backend with `npm install` in both the `client` and the `server` directories.
 6. Start the backend and the frontend in two terminals with `npm start` in both the `client` and the `server` directories.
-7. Navigate to [localhost:3000](localhost:3000).
+7. Navigate to localhost:3000 in your web browser of choice.
