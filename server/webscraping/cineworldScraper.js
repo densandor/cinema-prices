@@ -32,7 +32,7 @@ const getCineworldShowtimes = async (title) => {
 	try {
 		//opens the browser
 		const browser = await puppeteer.launch({
-			headless: true,
+			headless: false,
 			executablePath: executablePath(),
 		});
 		//creates a new page
@@ -41,29 +41,32 @@ const getCineworldShowtimes = async (title) => {
 		await page.goto("https://www.cineworld.co.uk/#/");
 
 		//accept cookies
-		await page.click("#onetrust-accept-btn-handler");
+		await page.waitForSelector("#onetrust-reject-all-handler");
+		await page.click("#onetrust-reject-all-handler");
 		//wait for the cookies banner to disappear
-		await page.waitForSelector("#onetrust-banner-sdk", { hidden: true });
-
+		await page.waitForSelector("#onetrust-pc-dark-filter", { hidden: true });
+		console.log("Cookies done");
 		//get the film search button
 		const byFilmButton = await page.$x(
 			"/html/body/section[1]/section/div[1]/div/div[2]/div[1]/div/button[2]"
 		);
+		console.log("Found 'by film' button");
 		//click to search by film
 		await byFilmButton[0].click();
-
+		console.log("Clicked 'by film' button");
 		//wait for the choose film to load
 		await page.waitForXPath(
 			"/html/body/section[1]/section/div[1]/div/div[2]/div[2]/div/div[1]/div/div/button[@class='btn dropdown-toggle btn-default' and @title='Choose a film']"
 		);
+		console.log("Found dropdown");
 		//press the 'choose a film' dropdown
 		await page.click(
 			"body > section.light.quickbook-section.npm-quickbook > section > div.qb.qb-by-film > div > div:nth-child(2) > div.col-sm-7.col-sm-pull-5 > div > div.col-sm-5.qb-movie-select.col-xs-8 > div > div > button"
 		);
-
+		console.log("Clicked dropdown");
 		//type the title of the film
 		await page.type("[name=searchBox]", title);
-
+		console.log("Typed title");
 		//check if the no results message is displayed
 		const noresults = await page.$(
 			"body > div.selectpicker-dropdown-container.npm-quickbook > div.bs-container.btn-group.bootstrap-select.qb-.dropup.open > div > ul > li.no-results"

@@ -1,10 +1,11 @@
 const mysql = require("mysql2/promise");
+const config = require("../config/config");
 
 //creates a new connection to the database
 const con = mysql.createPool({
 	host: "localhost",
-	user: "root",
-	password: "root",
+	user: config.user,
+	password: config.pwd,
 	database: "cinema_project",
 	waitForConnections: true,
 	connectionLimit: 10,

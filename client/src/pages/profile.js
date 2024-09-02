@@ -33,6 +33,8 @@ function Profile() {
 	//preset the possible different genres to be an empty list
 	const [data, setData] = useState([]);
 
+	const [genreUpdateStatus, setGenreUpdateStatus] = useState("");
+
 	//this function is called when the page loads and adds the users existing genres
 	useEffect(() => {
 		const getAllGenres = async () => {
@@ -75,13 +77,17 @@ function Profile() {
 	};
 
 	//function to call when the save button is pressed
-	const saveGenres = (e) => {
+	const saveGenres = async (e) => {
 		//stops the page from reloading
 		e.preventDefault();
 		//sets the user's genres to be the ones they selected
 		user.genres = selected;
 		//calls the save genres method of the user object
-		user.saveGenres();
+		try {
+			await user.saveGenres();
+		} catch (err) {
+			setGenreUpdateStatus(err);
+		}
 	};
 
 	return (
@@ -141,6 +147,7 @@ function Profile() {
 								closeMenuOnSelect={false}
 							/>
 							<button>Save genres</button>
+							<h3 className="errorMessage">{genreUpdateStatus}</h3>
 						</form>
 					</Box>
 				</Center>

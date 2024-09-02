@@ -63,7 +63,6 @@ function Login() {
 
 	//function called when the user id changes
 	useEffect(() => {
-		console.log(user.role);
 		//if a user id is present
 		if (user.user_id) {
 			if (user.role == "admin") {
