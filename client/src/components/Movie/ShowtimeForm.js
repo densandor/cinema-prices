@@ -38,6 +38,7 @@ function ShowtimeForm() {
 			if (!err?.response) {
 				setShowtimeStatus("No Server Response");
 			} else {
+				console.log(err);
 				setShowtimeStatus(err?.response?.data);
 			}
 		}

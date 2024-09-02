@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const config = require("../config/config");
 
 //imports the functions which are used to access the database
 const userRepo = require("../repositories/userRepository");
@@ -21,7 +22,7 @@ const handleLogin = async (req, res) => {
 			//sets the logged in user to be the user from the database
 			req.session.user = { ...foundUser };
 			//assigns roles to the logged in user based on username
-			if (foundUser.username == "admin") {
+			if (config.admins.includes(foundUser.username)) {
 				req.session.user.role = "admin";
 			} else {
 				req.session.user.role = "user";
@@ -45,8 +46,6 @@ const handleLogin = async (req, res) => {
 const handlePasswordChange = async (req, res) => {
 	//get the old and new password from the request
 	const { password, newPassword } = req.body;
-	console.log(password, newPassword);
-	console.log(req.session.user);
 	try {
 		//check if the old passwords match
 		const match = await bcrypt.compare(password, req.session.user.password);

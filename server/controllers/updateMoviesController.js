@@ -1,5 +1,6 @@
 //imports the functions which are used to access the database
 const movieRepo = require("../repositories/movieRepository");
+const config = require("../config/config");
 
 const Axios = require("axios");
 
@@ -24,7 +25,9 @@ const handleGetNewMovies = async (req, res) => {
 			if (count % 20 == 0) {
 				//gets a new page of movie results from the API
 				response = await Axios.get(
-					"https://api.themoviedb.org/3/discover/movie?api_key=f24e195ff96735a54d90ac08f5bfa7cb&language=en-US&page=" +
+					"https://api.themoviedb.org/3/discover/movie?api_key=" +
+						config.key +
+						"&language=en-US&page=" +
 						page +
 						"&primary_release_date.gte=" +
 						startDate +

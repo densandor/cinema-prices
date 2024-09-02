@@ -9,7 +9,7 @@ class User {
 	#lastname;
 	#genres;
 	#role;
-	constructor(id, name, mail, fname, lname, genreList, role) {
+	constructor(id, name, fname, lname, mail, genreList, role) {
 		this.#user_id = id;
 		this.#username = name;
 		this.#email = mail;
@@ -109,7 +109,7 @@ class User {
 			if (!err?.response) {
 				return Promise.reject("No server response");
 			} else if (err.response?.status === 400) {
-				return Promise.reject("Bad request for updating genres");
+				return Promise.reject("Missing gernes");
 			} else if (err.response?.status === 401) {
 				return Promise.reject("Unauthorized");
 			} else {
@@ -135,7 +135,7 @@ class User {
 			if (!err?.response) {
 				return Promise.reject("No server response");
 			} else if (err.response?.status === 400) {
-				return Promise.reject("Password must be between");
+				return Promise.reject("Missing password");
 			} else if (err.response?.status === 401) {
 				return Promise.reject("Unauthorized");
 			} else {

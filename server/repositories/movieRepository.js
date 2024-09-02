@@ -181,7 +181,7 @@ const getNewestMovieDate = async () => {
 const getRecommendations = async (genreIds, pages) => {
 	//gets the recommendations
 	const [movies] = await db.query(
-		"SELECT * FROM movies WHERE movie_id IN (SELECT movie_id FROM movie_genres WHERE movie_genres.genre_id IN (?)) ORDER BY release_date DESC , rating DESC LIMIT ?, 10;",
+		"SELECT * FROM movies WHERE movie_id IN (SELECT movie_id FROM movie_genres WHERE movie_genres.genre_id IN (?) ) ORDER BY release_date DESC , rating DESC LIMIT ?, 10;",
 		[genreIds, pages * 10]
 	);
 	//returns them

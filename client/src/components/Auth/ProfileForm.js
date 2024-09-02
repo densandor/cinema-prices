@@ -96,9 +96,9 @@ function ProfileForm() {
 			id: 2,
 			name: "lastname",
 			type: "text",
-			placeholder: "Last name",
+			placeholder: "Enter new last name",
 			errorMessage: "Name must only be letters, 2-20 characters",
-			label: "Last name",
+			label: "New last name",
 			pattern: "^[A-Za-z]{2,20}$",
 			required: true,
 		},
@@ -108,7 +108,7 @@ function ProfileForm() {
 			type: "email",
 			placeholder: "Enter new email",
 			errorMessage: "Not a valid email address",
-			label: "New Email",
+			label: "New email",
 			required: true,
 		},
 	];
@@ -132,7 +132,8 @@ function ProfileForm() {
 			errorMessage:
 				"Password must have a lower and uppercase letter, number and special character, 8-20 characters",
 			label: "New Password",
-			pattern: `^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
+			pattern:
+				"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!\\@\\#\\$\\%\\^\\&\\*\\,\\.\\;\\:\\~\\|])[a-zA-Z0-9!\\@\\#\\$\\%\\^\\&\\*\\,\\.\\;\\:\\~\\|]{8,20}$",
 			required: true,
 		},
 	];
