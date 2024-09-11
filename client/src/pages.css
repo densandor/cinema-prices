@@ -1,0 +1,114 @@
+.content {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.booking-link {
+	text-decoration: underline;
+}
+.booking-link:hover {
+	cursor: pointer;
+}
+
+.form {
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	background-color: var(--accent);
+	margin: 1rem;
+	text-align: left;
+}
+
+.plain-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	margin: 1rem;
+	text-align: left;
+}
+
+.plain-button,
+.plain-form button,
+.form button {
+	display: flex;
+	align-items: center;
+	border-radius: 50px;
+	background: var(--light);
+	padding: 10px 22px;
+	color: var(--dark);
+	outline: none;
+	border: none;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	text-decoration: none;
+	margin: 1rem 0;
+}
+
+.search-button {
+	margin: 10px !important;
+	height: 57px;
+	border-radius: 5px !important;
+}
+
+.plain-form button:hover,
+.form button:hover {
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	background: var(--dark);
+	color: var(--light);
+}
+
+.formInput {
+	display: flex;
+	flex-direction: column;
+	width: 400px;
+}
+
+.formInput input {
+	padding: 15px;
+	margin: 10px 0px;
+	border-radius: 5px;
+	border: 1px solid var(--dark);
+}
+.formInput input:focus {
+	outline: none !important;
+	border-color: solid var(--dark);
+	box-shadow: 0 0 10px var(--main);
+}
+
+.formInputlabel {
+	color: var(--dark);
+}
+
+.formInput .error {
+	padding: 3px;
+	color: red;
+	display: none;
+}
+
+.formInput input:invalid[left="true"] {
+	border: 1px solid red;
+}
+
+.formInput input:invalid[left="true"] ~ .error {
+	display: block;
+}
+
+.redirectLink {
+	align-self: flex-start;
+	text-decoration: underline;
+	color: var(--dark);
+}
+.empty-icons {
+	display: flex !important;
+}
+.filled-icons {
+	display: -webkit-inline-box !important;
+}
