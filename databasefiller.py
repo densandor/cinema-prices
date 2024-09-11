@@ -11,10 +11,10 @@ import mysql.connector
 import csv
 
 mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="root",
-  database="cinema_project"
+  host="",
+  user="",
+  password="",
+  database=""
 )
 
 mycursor = mydb.cursor()
