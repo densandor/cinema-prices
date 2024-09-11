@@ -38,3 +38,5 @@ Admin users are also able to:
   - Validation: Yup
   - Webscraping: Puppeteer
 - Database: MySQL
+
+This project is for educational purposes only.
