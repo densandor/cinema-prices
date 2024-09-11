@@ -26,3 +26,14 @@ Admin users are also able to:
 4. Ensure you add the correct TMDB API key, admin usernames, MySQL username and MySQL password into the `server/config/config.js` file.
 5. Install the dependencies for the frontend and the backend with `npm ci` in both the `client` and the `server` directories.
 6. Start the backend and the frontend in two terminals with `npm start` in both the `client` and the `server` directories.
+
+<br/>
+
+## Technologies Used
+
+- Frontend: React.js
+- Backend: Node.js
+  - Routing: Express.js
+  - Validation: Yup
+  - Webscraping: Puppeteer
+- Database: MySQL
