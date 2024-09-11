@@ -32,6 +32,7 @@ Admin users are also able to:
 ## Technologies Used
 
 - Frontend: React.js
+  - UI: Chakra UI
 - Backend: Node.js
   - Routing: Express.js
   - Validation: Yup
