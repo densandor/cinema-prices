@@ -5,6 +5,7 @@ const config = require("../config/config");
 const userRepo = require("../repositories/userRepository");
 
 const handleLogin = async (req, res) => {
+	console.log("Starting login");
 	//gets the login values from the request
 	const { username, password } = req.body;
 	try {
@@ -14,23 +15,24 @@ const handleLogin = async (req, res) => {
 			//return error message if the user doesnt exist
 			return res.status(401).json({ message: "Unauthorized" });
 		}
-		//otherwise get the details of the user
+		//get the details of the user
 		const foundUser = await userRepo.getUser(username);
 		//check if the passwords match
 		const match = await bcrypt.compare(password, foundUser.password);
 		if (match) {
-			//sets the logged in user to be the user from the database
-			req.session.user = { ...foundUser };
+			//removing password hash from the object so it's not sent to the frontend
+			delete foundUser.password;
+
 			//assigns roles to the logged in user based on username
 			if (config.admins.includes(foundUser.username)) {
-				req.session.user.role = "admin";
+				foundUser.role = "admin";
 			} else {
-				req.session.user.role = "user";
+				foundUser.role = "user";
 			}
-			foundUser.role = req.session.user.role;
 
-			//removing password so it's not sent to the frontend
-			delete foundUser.password;
+			//sets the logged in user to be the user from the database
+			req.session.user = structuredClone(foundUser);
+
 			//returning success message and user details to the frontend
 			return res.status(200).json({ user: foundUser });
 		} else {

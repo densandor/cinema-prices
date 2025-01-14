@@ -5,6 +5,7 @@ const mockReq = (properties) => {
 	//sets the values for the passed values
 	req.body = properties?.bodyData || {};
 	req.query = properties?.queryData || {};
+	req.session = {};
 	//returns the obect
 	return req;
 };
