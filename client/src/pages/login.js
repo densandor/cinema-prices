@@ -65,7 +65,7 @@ function Login() {
 	useEffect(() => {
 		//if a user id is present
 		if (user.user_id) {
-			if (user.role == "admin") {
+			if (user.role === "admin") {
 				navigate("/admin", { replace: true });
 			} else {
 				//the user is navigated to where they came from or the home page

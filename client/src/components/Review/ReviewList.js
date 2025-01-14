@@ -39,7 +39,7 @@ function ReviewList(props) {
 				//creates a new review object from each result
 				let currentObj = new Review(...Object.values(currentResult));
 				//cheks if its the user's review
-				if (currentObj.user_id == user.user_id) {
+				if (currentObj.user_id === user.user_id) {
 					//sets the existing review to be the user's review
 					setExistingReview(currentObj);
 				} else {
