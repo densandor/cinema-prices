@@ -52,7 +52,7 @@ const Showtimes = (props) => {
 					<Select
 						options={options}
 						onChange={handleDateChange}
-						value={options.filter((obj) => date == obj.value)}
+						value={options.filter((obj) => date === obj.value)}
 						placeholder="Select Date"
 					/>
 					<Box overflowY="auto" maxHeight="300px">

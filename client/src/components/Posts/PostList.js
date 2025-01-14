@@ -95,7 +95,7 @@ function PostList() {
 							>
 								{item.post_content}
 							</Text>
-							{user.role == "admin" && (
+							{user.role === "admin" && (
 								<Button
 									onClick={() => deletePost(item.post_id)}
 									w="fit-content"

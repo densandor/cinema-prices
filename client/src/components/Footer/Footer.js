@@ -21,7 +21,7 @@ const Footer = () => {
 					<Link to="/search">Movie Search</Link>
 					<Link to="/login">Sign in</Link>
 				</Stack>
-				<Text>© 2023 CinemaPrices</Text>
+				<Text>© {new Date().getFullYear()} CinemaPrices</Text>
 			</Container>
 		</Box>
 	);

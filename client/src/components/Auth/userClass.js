@@ -73,7 +73,7 @@ class User {
 				email: newDetails.email,
 			});
 			//sets the user in the context of the site if the request was successful
-			if (response.status == 200) {
+			if (response.status === 200) {
 				this.username = newDetails.username;
 				this.firstname = newDetails.firstname;
 				this.lastname = newDetails.lastname;
@@ -127,7 +127,7 @@ class User {
 				newPassword: newPassword,
 			});
 			//returns a success message if the request was successful
-			if (response.status == 200) {
+			if (response.status === 200) {
 				return { message: "Updated password" };
 			}
 		} catch (err) {
