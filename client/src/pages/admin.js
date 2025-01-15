@@ -4,7 +4,14 @@ import Axios from "axios";
 import PostList from "../components/Posts/PostList";
 import PostForm from "../components/Posts/PostForm";
 //imports components from the UI library
-import { Divider, Text, Flex, ButtonGroup } from "@chakra-ui/react";
+import {
+	Divider,
+	Text,
+	Flex,
+	ButtonGroup,
+	Center,
+	VStack,
+} from "@chakra-ui/react";
 //uses the reusable css file
 import "../pages.css";
 //imports the reusable form input compontent
@@ -134,10 +141,16 @@ function Admin() {
 				<FormInput {...input} onChange={handleChange} />
 				<h3>{showtimeStatus}</h3>
 				<ButtonGroup>
-					<button onClick={getCineworldShowtimes}>
-						Get Cineworld showtimes
-					</button>
-					<button onClick={getVueShowtimes}>Get Vue showtimes</button>
+					<VStack>
+						<Center>
+							<button onClick={getCineworldShowtimes}>
+								Get Cineworld showtimes
+							</button>
+						</Center>
+						<Center>
+							<button onClick={getVueShowtimes}>Get Vue showtimes</button>
+						</Center>
+					</VStack>
 				</ButtonGroup>
 			</form>
 		</div>
