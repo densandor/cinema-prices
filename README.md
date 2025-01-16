@@ -31,9 +31,10 @@ Admin users can also:
 1. Ensure you have node (developed with v18.0.0), MySQL (developed with v8.0.29) and npm.
 2. Clone the git reporsitory.
 3. Import the database file into MySQL and ensure MySQL is running.
-4. Ensure you add the correct TMDB API key, admin usernames, MySQL username and MySQL password into the `server/config/config.js` file.
-5. Install the dependencies for the frontend and the backend with `npm ci` in both the `client` and the `server` directories.
-6. Start the backend and the frontend in two terminals with `npm start` in both the `client` and the `server` directories.
+4. Rename the `server/config/config_example.js` file to `server/config/config.js`.
+5. Ensure you add the correct TMDB API key, admin usernames, MySQL username and MySQL password into the `server/config/config.js` file.
+6. Install the dependencies for the frontend and the backend with `npm ci` in both the `client` and the `server` directories.
+7. Start the backend and the frontend in two terminals with `npm start` in both the `client` and the `server` directories.
 
 <br>
 
