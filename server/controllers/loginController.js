@@ -5,7 +5,6 @@ const config = require("../config/config");
 const userRepo = require("../repositories/userRepository");
 
 const handleLogin = async (req, res) => {
-	console.log("Starting login");
 	//gets the login values from the request
 	const { username, password } = req.body;
 	try {
