@@ -3,5 +3,8 @@
 # dependencies
 node_modules/
 
-# server config
+# config
 /server/config/config.js
+
+# testing
+coverage/
