@@ -6,6 +6,12 @@ This full-stack website helps users discover their next favorite movie by allowi
 
 <br>
 
+![home](https://github.com/densandor/cinema-prices/blob/main/images/home.png)
+![home](https://github.com/densandor/cinema-prices/blob/main/images/search.png)
+![home](https://github.com/densandor/cinema-prices/blob/main/images/movie.png)
+
+<br>
+
 ## Features
 
 Regular users can:
