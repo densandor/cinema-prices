@@ -52,4 +52,5 @@ Admin users can also:
   - Routing: Express.js
   - Validation: Yup
   - Webscraping: Puppeteer
+  - Testing: Jest and Postman
 - Database: MySQL
