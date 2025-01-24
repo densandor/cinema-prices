@@ -1,6 +1,7 @@
 //imports the functions which are used to scrape the showtimes
 const cineworldScraper = require("../webscraping/cineworldScraper");
 const vueScraper = require("../webscraping/vueScraper");
+const cinemacityScraper = require("../webscraping/cinemacityScraper");
 
 //imports the functions which are used to access the database
 const movieRepo = require("../repositories/movieRepository");
@@ -9,6 +10,7 @@ const movieRepo = require("../repositories/movieRepository");
 const storeShowtimes = async (title, results) => {
 	//gets the dates of each of lists of showtimes
 	const dates = Object.keys(results);
+	console.log(dates);
 	//iterates through the list of dates, which each have showtimes
 	for (let i = 0; i < dates.length; i++) {
 		//gets the current date
@@ -26,7 +28,9 @@ const storeShowtimes = async (title, results) => {
 				//formats the date of the showing
 				let d = new Date(s[2], s[1] - 1, s[0], t[0], t[1]);
 				//gets the price value as a number
-				let price = Number(showTimes[j].price.slice(1));
+				let price = showTimes[j].price;
+				if (price.charAt(0) == "£") price = price.slice(1);
+				price = Number(price);
 				//adds the showing to the database
 				await movieRepo.insertShowtime(
 					title,
@@ -71,6 +75,28 @@ const handleVueShowtimes = async (req, res) => {
 
 		//returns success message
 		return res.status(200).json("Successfully stored vue results");
+	} catch (error) {
+		//returns an error if something goes wrong
+		res.status(500).json(error);
+	}
+};
+
+const handleCinemacityShowtimes = async (req, res) => {
+	//gets the title of the movie from the request
+	const { title } = req.body;
+	try {
+		//retrieves the showtimes from cinemacity
+		// const cinemacityResults = await cinemacityScraper.getCinemacityShowtimes(
+		// 	title
+		// );
+		var fs = require("fs");
+		var cinemacityResults = JSON.parse(fs.readFileSync("test.txt", "utf8"));
+		console.log(cinemacityResults);
+		//stores them in the database
+		await storeShowtimes(title, cinemacityResults);
+
+		//returns success message
+		return res.status(200).json("Successfully found cinemacity results");
 	} catch (error) {
 		//returns an error if something goes wrong
 		res.status(500).json(error);
@@ -122,5 +148,6 @@ const handleAddShowtime = async (req, res) => {
 module.exports = {
 	handleCineworldShowtimes,
 	handleVueShowtimes,
+	handleCinemacityShowtimes,
 	handleAddShowtime,
 };

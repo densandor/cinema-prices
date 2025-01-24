@@ -18,6 +18,11 @@ router.post(
 	authRoles(["admin"]),
 	showtimesController.handleVueShowtimes
 );
+router.post(
+	"/cinemacity",
+	authRoles(["admin"]),
+	showtimesController.handleCinemacityShowtimes
+);
 
 router.post("/", authRoles(["admin"]), showtimesController.handleAddShowtime);
 

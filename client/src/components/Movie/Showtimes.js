@@ -78,7 +78,11 @@ const Showtimes = (props) => {
 														).slice(-2)}
 													</Td>
 													<a href={showing.link}>
-														<Td className="booking-link">£{showing.price}</Td>
+														<Td className="booking-link">
+															{showing.price != 0
+																? "£" + showing.price
+																: "Price not found"}
+														</Td>
 													</a>
 												</Tr>
 											);

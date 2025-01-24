@@ -75,6 +75,28 @@ function Admin() {
 			}
 		}
 	};
+	//function called when the button is pressed to get showtimes
+	const getCinemacityShowtimes = async (e) => {
+		//stops the page from reloading
+		e.preventDefault();
+		try {
+			//sends request to get showtimes for a given title
+			await Axios.post("http://localhost:3001/showtimes/cinemacity", {
+				title: title,
+			});
+			//sets the response to be successful
+			setShowtimeStatus("Successfully added Cinema City showtimes");
+		} catch (err) {
+			//handling errors
+			if (!err.response) {
+				setShowtimeStatus("Cinema City: No server response");
+			} else if (err.response?.status === 400) {
+				setShowtimeStatus("Cinema City: No movie found with that title");
+			} else {
+				setShowtimeStatus("Cinema City: Getting info failed");
+			}
+		}
+	};
 	//function called when the button is pressed to add new movies to the database
 	const updateMovies = async (e) => {
 		//stops the page from reloading
@@ -149,6 +171,11 @@ function Admin() {
 						</Center>
 						<Center>
 							<button onClick={getVueShowtimes}>Get Vue showtimes</button>
+						</Center>
+						<Center>
+							<button onClick={getCinemacityShowtimes}>
+								Get Cinema City showtimes
+							</button>
 						</Center>
 					</VStack>
 				</ButtonGroup>
