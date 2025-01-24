@@ -2,13 +2,13 @@
 
 <br>
 
-This full-stack website helps users discover their next favorite movie by allowing them to search for films, receive personalized recommendations, read and leave reviews, and check real-time cinema ticket prices scraped from multiple cinema chains. The platform offers personalized suggestions based on user preferences, while the review feature lets users share their thoughts on movies. It creates a tailored movie discovery experience, making it easy to find films and book tickets at the best prices. Built with React, Node.js, and MySQL, it provides a user-friendly interface and efficient backend for fast, relevant movie data and price comparisons.
+This full-stack website helps users discover their next favourite movie by allowing them to search for films, receive personalized recommendations, read and leave reviews, and check real-time cinema ticket prices scraped from multiple cinema chains. The platform offers personalized suggestions based on user preferences, while the review feature lets users share their thoughts on movies. It creates a tailored movie discovery experience, making it easy to find films and book tickets at the best prices. Built with React, Node.js, and MySQL, it provides a user-friendly interface and efficient backend for fast, relevant movie data and price comparisons.
 
 <br>
 
 ![home](https://github.com/densandor/cinema-prices/blob/main/images/home.png)
 ![home](https://github.com/densandor/cinema-prices/blob/main/images/search.png)
-![home](https://github.com/densandor/cinema-prices/blob/main/images/movie.png)
+![home](https://github.com/densandor/cinema-prices/blob/main/images/gladiator.png)
 
 <br>
 
@@ -19,7 +19,7 @@ Regular users can:
 - Search for movies to get information about them.
 - Find showtimes, each with a price and a link directly to booking.
 - Write, update and delete reviews with ratings, which impact the average rating of the movie.
-- Recieve custom recommendations based on their preferred genres.
+- Receive custom recommendations based on their preferred genres.
 - Register for an account, sign in or out and remain signed in with cookies.
 - Update their account details, password or preferred movie genres.
 
@@ -35,7 +35,7 @@ Admin users can also:
 ## Usage
 
 1. Ensure you have node (developed with v18.0.0), MySQL (developed with v8.0.29) and npm.
-2. Clone the git reporsitory.
+2. Clone the git repository.
 3. Import the database file into MySQL and ensure MySQL is running.
 4. Rename the `server/config/config_example.js` file to `server/config/config.js`.
 5. Ensure you add the correct TMDB API key, admin usernames, MySQL username and MySQL password into the `server/config/config.js` file.
