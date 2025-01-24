@@ -10,7 +10,6 @@ const movieRepo = require("../repositories/movieRepository");
 const storeShowtimes = async (title, results) => {
 	//gets the dates of each of lists of showtimes
 	const dates = Object.keys(results);
-	console.log(dates);
 	//iterates through the list of dates, which each have showtimes
 	for (let i = 0; i < dates.length; i++) {
 		//gets the current date
@@ -86,12 +85,9 @@ const handleCinemacityShowtimes = async (req, res) => {
 	const { title } = req.body;
 	try {
 		//retrieves the showtimes from cinemacity
-		// const cinemacityResults = await cinemacityScraper.getCinemacityShowtimes(
-		// 	title
-		// );
-		var fs = require("fs");
-		var cinemacityResults = JSON.parse(fs.readFileSync("test.txt", "utf8"));
-		console.log(cinemacityResults);
+		const cinemacityResults = await cinemacityScraper.getCinemacityShowtimes(
+			title
+		);
 		//stores them in the database
 		await storeShowtimes(title, cinemacityResults);
 

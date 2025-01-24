@@ -76,7 +76,6 @@ const getCinemacityShowtimes = async (title) => {
 		await page.goto("https://www.cinemacity.hu/?lang=en_GB#/");
 		//type the title of the film
 		await page.type("[name=query]", title);
-		console.log("Typed title");
 		//check if the no results message is displayed
 		const noresults = await page.$("li.no-results");
 		if (noresults.length > 0) {
@@ -125,19 +124,16 @@ const getCinemacityShowtimes = async (title) => {
 		const dateSelector =
 			"body > section.light.quickbook-section.npm-quickbook > section > div:nth-child(1) > div > div > div:nth-child(2) > div.col-sm-12.col-md-6.qb-calendar-widget > div > div.qb-days-group.btn-group > button.btn-default:not(.disabled)";
 		const dateButtons = await page.$$(dateSelector);
-		console.log(dateButtons);
 		let results = {};
 		//iterates through the date buttons
 		for (let button of dateButtons) {
 			//click the date button
 			await button.click();
-			console.log("Clicked button");
 			//wait for the showtimes to show up
 			await page.waitForXPath(
 				"/html/body/section[2]/section/div[1]/div/section/div[2]/div[1]",
 				{ timeout: 500 }
 			);
-			console.log("Waited for showtimes");
 			const [date, showingList] = await page.evaluate(() => {
 				//preset the showtimes array
 				let showings = [];
@@ -155,7 +151,7 @@ const getCinemacityShowtimes = async (title) => {
 				for (let i = 0; i < times.length; i++) {
 					let currentShowing = times[i];
 					let cinemaName =
-						"Cinemacity " +
+						"Cinema City " +
 						currentShowing.closest(".row.movie-row").querySelector("h4")
 							.innerText;
 					let time = currentShowing.innerText;
@@ -174,7 +170,6 @@ const getCinemacityShowtimes = async (title) => {
 			//set the number of prices to get at the same time
 			const chunkLength = 20;
 			//iterate through all the showings
-			console.log(showingList.length);
 			for (let j = 0, len = showingList.length; j < len; j += chunkLength) {
 				//get the chunks of showings from the showings
 				let chunkOfShowings = showingList.slice(j, j + chunkLength);
@@ -186,7 +181,6 @@ const getCinemacityShowtimes = async (title) => {
 						})
 					)
 				);
-				console.log(chunkOfPrices);
 				//add the prices to the prices array
 				prices.push(...chunkOfPrices);
 			}
